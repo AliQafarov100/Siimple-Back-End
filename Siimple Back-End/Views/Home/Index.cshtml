@@ -1,0 +1,165 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main>
+    <section id="main" style=" background-image: url(assets/Image/hero-bg.jpg)">
+        <nav>
+            <div class="row">
+                <div class="logo col-lg-5 col-md-6 col-sm-6 col-6 text-light">
+                    <h1 class="ms-4 mt-3">Siimple</h1>
+                </div>
+                <nav class="navbar  fixed-top">
+                    <div class="container-fluid d-flex justify-content-end">
+
+                        <button class="navbar-toggler but" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-action="Edit">@User.Identity.Name</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-action="Account">Logout</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-controller="Account" asp-action="Register">Register</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-controller="Account" asp-action="Edit">Login</a>
+                                        </li>
+                                    }
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Dropdown
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <form class="d-flex" role="search">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+        </nav>
+        <div class="description">
+            <h2 class="mt-5">@layoutservice.GetDatas().Result.FirstOrDefault(t => t.Key == "MainTitle").Value</h2>
+            <p>@layoutservice.GetDatas().Result.FirstOrDefault(s => s.Key == "MainSubTitle").Value</p>
+            <div class="identity">
+                <form action="">
+                    <input type="text" placeholder="Your Name">
+                    <input type="text" placeholder="Your Email">
+                </form>
+                <button class="btn mt-4">Notify me!</button>
+            </div>
+        </div>
+    </section>
+    <section id="picture" class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="image col-lg-6 col-md-12 col-sm-12">
+                    <img src="/assets/Image/Picture/about-img.jpg" alt="">
+                </div>
+                <div class="description-about col-lg-5 col-md-12 col-sm-12">
+                    <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+                    <p> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</p>
+                    <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="card-section">
+        <div class="container">
+            <div class="row">
+                @foreach (Card card in Model.Cards)
+                {
+                    <div class="col-lg-4 cards">
+                        <div class="punkt text-center">
+                            <img src="/assets/Image/Service/@card.Inage" alt="">
+                            <i class="@card.Icon"></i>
+                            <h4>@card.Title</h4>
+                            <p>@card.SubTitle</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <h1 class="text-center">@layoutservice.GetDatas().Result.FirstOrDefault(c => c.Key == "Contact").Value</h1>
+                <div class="location col-lg-5">
+                    <div class="d-flex">
+                        <i class="@layoutservice.GetDatas().Result.FirstOrDefault(l => l.Key == "LocationIcon").Value"></i>
+                        <p class="ms-3">
+                            @layoutservice.GetDatas().Result.FirstOrDefault(a => a.Key == "Address").Value
+                        </p>
+                    </div>
+                    <div class="d-flex">
+                        <i class="@layoutservice.GetDatas().Result.FirstOrDefault(l => l.Key == "LocationIcon").Value"></i>
+                        <p class="ms-3">
+                            @layoutservice.GetDatas().Result.FirstOrDefault(e => e.Key == "Envelope").Value
+                        </p>
+                    </div>
+                    <div class="d-flex">
+                        <i class="fa-solid fa-phone"></i>
+                        <p class="ms-3">@layoutservice.GetDatas().Result.FirstOrDefault(s => s.Key == "Phone").Value</p>
+                    </div>
+                    <div class="d-flex icon-div justify-content-between">
+                        <i class="@layoutservice.GetDatas().Result.FirstOrDefault(s => s.Key == "TwitterIcon").Value icon"></i>
+                        <i class="@layoutservice.GetDatas().Result.FirstOrDefault(s => s.Key == "FacebookIcon").Value icon"></i>
+                        <i class="@layoutservice.GetDatas().Result.FirstOrDefault(s => s.Key == "InstagramIcon").Value icon"></i>
+                        <i class="@layoutservice.GetDatas().Result.FirstOrDefault(s => s.Key == "InvisionIcon").Value icon"></i>
+                    </div>
+
+                </div>
+
+                <div class="email col-lg-7">
+                    <form action="">
+                        <input type="text" placeholder="Email"> <br>
+                        <input type="text" placeholder="Phone"> <br>
+                        <input type="text" placeholder="Subject"> <br>
+                        <textarea name="" id="" cols="30" rows="6" placeholder="Message" class="mt-3"></textarea>
+                    </form>
+                    <button class="btn btn-danger email-btn">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</main>
+

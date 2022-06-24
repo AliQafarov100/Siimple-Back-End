@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#main {
+  height: 750px;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#main .bars {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+#main .bars i {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(34, 34, 34, 0.5);
+  border-radius: 5px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: center;
+}
+
+#main .description {
+  margin: 10% auto;
+  text-align: center;
+}
+
+#main .description h2 {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+#main .description p {
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+#main .description input {
+  border-radius: 25px;
+  border: none;
+}
+
+#main .description button {
+  border-radius: 20px;
+  background-color: orange;
+}
+
+#main .description .but {
+  background-color: red;
+}
+
+#contact .icon-div {
+  width: 150px;
+}
+
+#contact .icon-div .icon {
+  width: 30px;
+  height: 30px;
+  background-color: #333;
+  border-radius: 50%;
+  padding: 7px;
+  color: white;
+  font-size: 15px;
+}
+
+#picture .image img {
+  width: 100%;
+}
+
+.row {
+  --bs-gutter-x: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .description {
+    width: 50%;
+  }
+  .description input {
+    width: 30%;
+    height: 40px;
+  }
+  .description button {
+    width: 25%;
+  }
+  .description .description h2 {
+    font-size: 36px;
+  }
+  .responsive {
+    width: 200px;
+    height: 0px;
+    position: absolute;
+    right: 15px;
+  }
+  .container-fluid {
+    width: 90%;
+  }
+  #picture .description-about {
+    margin-left: 20px;
+  }
+  .email-btn {
+    width: 30%;
+    text-align: center;
+  }
+}
+
+#card-section {
+  background-color: #fff7f2;
+}
+
+#card-section .cards {
+  margin-top: 50px;
+  border-radius: 5px;
+}
+
+#card-section .cards .punkt {
+  width: 90%;
+  background-color: white;
+}
+
+#card-section .cards .punkt img {
+  width: 100%;
+}
+
+#card-section .cards .punkt i {
+  width: 80px;
+  height: 80px;
+  background-color: #fd680e;
+  font-size: 20px;
+  padding: 25px;
+  border-radius: 50%;
+  border: 3px solid white;
+  position: relative;
+  bottom: 35px;
+  color: white;
+  transition: 1s;
+}
+
+#card-section .cards .punkt i:hover {
+  background-color: whitesmoke;
+  color: #fd680e;
+}
+
+#contact .location i {
+  font-size: 25px;
+  color: #fd680e;
+}
+
+#contact .location p {
+  font-size: 15px;
+}
+
+#contact .email input {
+  width: 90%;
+  height: 30px;
+  margin-top: 10px;
+}
+
+#contact .email textarea {
+  width: 90%;
+}
+
+footer .endl {
+  width: 100%;
+  background-color: #2f1708;
+  text-align: center;
+  padding: 35px;
+}
+
+footer .endl p {
+  color: white;
+}
+
+footer .endl span {
+  color: white;
+}
+
+footer .endl a {
+  color: #fd680e;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  input {
+    width: 100%;
+    margin-top: 10px;
+    height: 40px;
+  }
+  .description {
+    width: 75%;
+  }
+  .description h2 {
+    font-size: 20px;
+  }
+  .description p {
+    font-size: 15px;
+  }
+  .description .identity button {
+    width: 100%;
+  }
+  .responsive {
+    position: absolute;
+    width: 100%;
+    margin: 0px auto;
+    height: 100vh;
+  }
+  .container-fluid {
+    width: 90%;
+  }
+  .email-btn {
+    width: 90%;
+  }
+  .email {
+    margin-top: 40px;
+  }
+  .email input {
+    width: 90%;
+    height: 30px;
+    margin-top: 10px;
+  }
+  .email textarea {
+    width: 90%;
+  }
+  footer .endl {
+    font-size: 12px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
